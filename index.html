@@ -612,6 +612,64 @@
   .signoff{ font-family:var(--mono); font-size:12px; color:var(--sage); margin-top:24px; }
 
   /* ---------- Script access card ---------- */
+  /* ---------- Mood board ---------- */
+  .moodboard-intro{ color:var(--bone-soft); max-width:620px; margin-bottom:32px; font-size:0.98rem; }
+  .moodboard-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:18px;
+  }
+  @media (max-width: 700px){
+    .moodboard-grid{ grid-template-columns:repeat(2, 1fr); }
+  }
+  .mood-card{
+    background:var(--bg-raised);
+    border:1px solid var(--line);
+    overflow:hidden;
+    transition:transform .3s ease, border-color .3s ease;
+  }
+  .mood-card:hover{ transform:translateY(-3px); border-color:rgba(233,230,220,0.4); }
+  .mood-card .mood-swatch{
+    height:120px;
+    width:100%;
+    position:relative;
+    overflow:hidden;
+  }
+  .mood-card .mood-swatch::after{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,.5) 0px, transparent 1px, transparent 2px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.2) 0px, transparent 1px, transparent 3px);
+    opacity:0.08;
+    mix-blend-mode:overlay;
+  }
+  .mood-card .mood-body{ padding:14px 16px 18px; }
+  .mood-card .mood-label{
+    font-family:var(--mono);
+    font-size:9.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--redact-red);
+    display:block;
+    margin-bottom:5px;
+  }
+  .mood-card .mood-title{
+    font-family:var(--display);
+    font-size:1.05rem;
+    font-weight:700;
+    color:var(--bone);
+    text-transform:uppercase;
+    margin-bottom:6px;
+    line-height:1.05;
+  }
+  .mood-card .mood-desc{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--bone-soft);
+    line-height:1.55;
+  }
+
   .script-card{
     display:flex;
     align-items:center;
@@ -930,6 +988,29 @@
     })();
   </script>
   
+
+  <section id="moodboard">
+    <div class="wrap">
+      <div class="eyebrow">Visual Reference</div>
+      <h2>Mood Board</h2>
+
+      <div class="script-card">
+        <div class="script-icon">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="14" width="36" height="32" rx="3" fill="none" stroke="var(--bone)" stroke-width="4"/>
+            <rect x="54" y="14" width="36" height="32" rx="3" fill="none" stroke="var(--bone)" stroke-width="4"/>
+            <rect x="10" y="54" width="36" height="32" rx="3" fill="none" stroke="var(--bone)" stroke-width="4"/>
+            <rect x="54" y="54" width="36" height="32" rx="3" fill="none" stroke="var(--redact-red)" stroke-width="4"/>
+          </svg>
+        </div>
+        <div class="script-body">
+          <span class="script-label">External Board</span>
+          <div class="script-title">Visual References</div>
+        </div>
+        <a href="https://canva.link/0rrwjtzktkg1qlb" target="_blank" rel="noopener" class="cta">View mood board ↗</a>
+      </div>
+    </div>
+  </section>
 
   <section id="statement">
     <div class="wrap">
